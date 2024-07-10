@@ -17,8 +17,8 @@ fi
 echo "🛠️ Processing Python files in $TARGET_DIR..."
 find "$TARGET_DIR" -type f -name "*.py" -print0 | while IFS= read -r -d '' file; do
     autoflake --remove-all-unused-imports --in-place --remove-unused-variables "$file"
-    black "$file"
     isort "$file"
+    black "$file"
     echo "✅ Processed $file"
 done
 
