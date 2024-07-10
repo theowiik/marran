@@ -1,24 +1,18 @@
 import asyncio
+import logging
 import os
-from dotenv import load_dotenv
+
 import discord
 from discord.ext import commands
-import logging
+from dotenv import load_dotenv
+
+from cogs.dev_cog import DevCog
 
 DISCORD_TOKEN = "DISCORD_TOKEN"
 
 
-class DevCog(commands.Cog):
-    def __init__(self, bot):
-        self.bot = bot
-
-    @commands.hybrid_command(name="ping", description="Pong!")
-    async def ping(self, ctx: commands.Context):
-        await ctx.send("Pong!")
-
-
 class MarranBot(commands.Bot):
-    sync_commands = True
+    sync_commands = False
     """Prevent rate-limiting."""
 
     def __init__(self, command_prefix, intents):
