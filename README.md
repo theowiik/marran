@@ -1,1 +1,3 @@
-# marran
+# Mårran 🌫️
+
+Mårran discord bot.
