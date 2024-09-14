@@ -7,6 +7,7 @@ from discord.ext.commands import BadArgument, Bot, CommandNotFound, CommandOnCoo
 from dotenv import load_dotenv
 
 from cogs.dev_cog import DevCog
+from cogs.type_cog import TypeCog
 
 DISCORD_TOKEN = "DISCORD_TOKEN"
 
@@ -50,11 +51,12 @@ async def main() -> None:
 
     bot = MarranBot(command_prefix="!", intents=intents)
     await bot.add_cog(DevCog(bot))
+    await bot.add_cog(TypeCog(bot))
     await bot.start(os.getenv(DISCORD_TOKEN))
 
 
 if __name__ == "__main__":
-    load_dotenv()
+    load_dotenv(override=True)
     discord_token = os.getenv(DISCORD_TOKEN)
 
     if discord_token is None or discord_token.strip() == "":
